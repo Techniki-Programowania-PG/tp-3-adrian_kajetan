@@ -19,12 +19,14 @@
 2. conda activate (nazwa_środowiska)
 3. pip install scikit-build-core pybind11 pytest cmake ninja build
 4. pip install . 
+5. instalacja biblioteki matplotplusplus na komputerze, gdzie folder matplotplusplus/build musi znaleźć się w lokalizacji projektu
 
 # Wyjaśnienie kroków:
 1. Stworzenie środowiska pythonowego 
 2. Aktywowanie tego środowiska
 3. Zainstlowanie w środowisku odpowiednich bibliotek potrzebnych do zbudowania modułu pythonowego
 4. Zbudowanie projektu
+5. zainstlowanie biblioteki matplotplusplus jest konieczne, gdyż repozytorium uwzględnia je jedynie jako submoduł z oficjalnego repozytorium matplotplusplus
 
 ## Uruchomienie wcześniej przygotowanych testów po instalacji i budowie projektu:
 - pytest -v -s tests
