@@ -3,7 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/matplotplusplus" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/pybind11" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Projekt3-Sygnaly" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Projekt3-Sygnaly/matplotplusplus" vcs="Git" />
   </component>
 </project>
