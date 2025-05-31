@@ -1,34 +1,38 @@
 #define _USE_MATH_DEFINES
 
 #include "fourier.hpp"
-#include <complex>
 #include <vector>
+#include <complex>
 #include <cmath>
 
-std::vector<std::complex<double>> dft(const std::vector<double>& signal) {
-	size_t N = signal.size();
-	std::vector<std::complex<double>> result(N);
-	for (size_t k = 0; k < N; ++k) {
-		std::complex<double> sum(0.0, 0.0);
-		for (size_t n = 0; n < N; ++n) {
-			double angle = -2 * M_PI * k * n / N;
-			sum += signal[n] * std::complex<double>(cos(angle), sin(angle));
+std::vector<std::complex<double>> dft(const std::vector<double>& inputSignal) {
+	size_t size = inputSignal.size();
+	std::vector<std::complex<double>> outputSpectrum(size);
+
+	for (size_t k = 0; k < size; ++k) {
+		std::complex<double> value(0.0, 0.0);
+		for (size_t n = 0; n < size; ++n) {
+			double theta = -2.0 * M_PI * k * n / size;
+			value += inputSignal[n] * std::polar(1.0, theta);  // e^{-jθ}
 		}
-		result[k] = sum;
+		outputSpectrum[k] = value;
 	}
-	return result;
+
+	return outputSpectrum;
 }
 
-std::vector<double> idft(const std::vector<std::complex<double>>& freq) {
-	size_t N = freq.size();
-	std::vector<double> result(N);
-	for (size_t n = 0; n < N; ++n) {
-		std::complex<double> sum(0.0, 0.0);
-		for (size_t k = 0; k < N; ++k) {
-			double angle = 2 * M_PI * k * n / N;
-			sum += freq[k] * std::complex<double>(cos(angle), sin(angle));
+std::vector<double> idft(const std::vector<std::complex<double>>& inputSpectrum) {
+	size_t size = inputSpectrum.size();
+	std::vector<double> outputSignal(size);
+
+	for (size_t n = 0; n < size; ++n) {
+		std::complex<double> value(0.0, 0.0);
+		for (size_t k = 0; k < size; ++k) {
+			double theta = 2.0 * M_PI * k * n / size;
+			value += inputSpectrum[k] * std::polar(1.0, theta);  // e^{jθ}
 		}
-		result[n] = sum.real() / N;
+		outputSignal[n] = value.real() / static_cast<double>(size);
 	}
-	return result;
+
+	return outputSignal;
 }
