@@ -24,9 +24,9 @@
 # Wyjaśnienie kroków:
 1. Stworzenie środowiska pythonowego 
 2. Aktywowanie tego środowiska
-3. Zainstlowanie w środowisku odpowiednich bibliotek potrzebnych do zbudowania modułu pythonowego
+3. Zainstalowanie w środowisku odpowiednich bibliotek potrzebnych do zbudowania modułu pythonowego
 4. Zbudowanie projektu
-5. zainstlowanie biblioteki matplotplusplus jest konieczne, gdyż repozytorium uwzględnia je jedynie jako submoduł z oficjalnego repozytorium matplotplusplus
+5. Zainstalowanie biblioteki matplotplusplus jest konieczne, gdyż repozytorium uwzględnia je jedynie jako submoduł z oficjalnego repozytorium matplotplusplus
 
 ## Uruchomienie wcześniej przygotowanych testów po instalacji i budowie projektu:
 - pytest -v -s tests
@@ -35,5 +35,6 @@
 - Pliki potrzebne do zbudowania modułu to przede wszystkim CmakeLists.txt, pyproject.toml i src/bindings.cpp
 - W folderze /src znajdują się wszystki pliki .cpp oraz .hpp zawierające cały kod c++
 - W głównym katalogu jest także folder raport, w którym znajduje się plik oddanie_projektu.ipynb z dokładnym opisem wszystkich funkcjonalności
+- Plik bindings.cpp zawiera zbiór wszystkich możliwych funkcji wraz z ich krótkim opisem a także eksportuje on je do modułu pythonowego
 - Widoczne są także foldery pybind11 i matplotplusplus będące bibliotekami niezbędnymi do kolejno: stworzenia pythonowego modułu oraz wizualizacji sygnałów
 - Oprócz nich istnieje folder tests z jednym tylko plikiem test_basic.py zawierającym proste testy związane z funkcjonalnością projektu
